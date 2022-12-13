@@ -8,12 +8,23 @@ Locally you can test this by exporting the following, which will set the JWK set
 path and the expected token kid:
 
 ```bash
+# example JWKs from https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-set-properties
 export JWK_SET_PATH=test_data/jwks.json
+
+# the kid from test_data/jwks.json
 export JWT_KID=NjVBRjY5MDlCMUIwNzU4RTA2QzZFMDQ4QzQ2MDAyQjVDNjk1RTM2Qg
 ```
 
-Run `go run main.go` to see a sample output, or import the package and use it to
-convert a JWK or JWK set with a `kid`:
+### Example Output
+Run `go run main.go` to start the server, which will expose `/v1/jwt` and use the
+`JWK_SET_PATH` and `JWT_KID` to return a sample PEM response on:
+
+```
+http://localhost:8000/v1/jwt
+```
+
+### Usage
+Import and use the package directly:
 
 ```go
 package main

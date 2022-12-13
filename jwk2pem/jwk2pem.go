@@ -4,8 +4,8 @@ import (
     "crypto/x509"
     "encoding/json"
     "encoding/pem"
-    "fmt"
     "github.com/lestrrat-go/jwx/jwk"
+    "log"
 )
 
 func JWKsToPem(keys JWKeys, kid string) []byte {
@@ -22,22 +22,22 @@ func JWKToPem(key JWKey) []byte {
     var b []byte
     jKey, err := json.Marshal(key)
     if err != nil {
-        fmt.Println(err)
+        log.Fatal(err)
     }
 
     k, err := jwk.ParseKey([]byte(jKey))
     if err != nil {
-        fmt.Println(err)
+        log.Fatal(err)
     }
 
     var rawKey interface{}
     if err := k.Raw(&rawKey); err != nil {
-        fmt.Println(err)
+        log.Fatal(err)
     }
 
     pubData, err := x509.MarshalPKIXPublicKey(rawKey)
     if err != nil {
-        fmt.Println(err)
+        log.Fatal(err)
     }
 
     b = pem.EncodeToMemory(&pem.Block{
@@ -45,7 +45,7 @@ func JWKToPem(key JWKey) []byte {
         Bytes: pubData,
     })
     if err != nil {
-        fmt.Println(err)
+        log.Fatal(err)
     }
 
     return b
