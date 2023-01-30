@@ -1,4 +1,4 @@
-module jwk2pem
+module github.com/coderbydesign/jwk2pem
 
 go 1.19
 
