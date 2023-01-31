@@ -32,7 +32,7 @@ package main
 import (
     "encoding/json"
     "fmt"
-    "github.com/coderbydesign/jwk2pem"
+    "github.com/RedHatInsights/jwk2pem"
     "strings"
 )
 

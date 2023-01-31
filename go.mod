@@ -1,4 +1,4 @@
-module github.com/coderbydesign/jwk2pem
+module github.com/RedHatInsights/jwk2pem
 
 go 1.19
 
