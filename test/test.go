@@ -2,7 +2,7 @@ package main
 
 import (
     "encoding/json"
-    "jwk2pem/jwk2pem"
+    "github.com/coderbydesign/jwk2pem"
     "log"
     "net/http"
     "os"
