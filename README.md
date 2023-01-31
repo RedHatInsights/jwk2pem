@@ -5,18 +5,18 @@ POC for converting a [JSON web key (JWK)](https://www.rfc-editor.org/rfc/rfc7515
 ### Setup
 
 Locally you can test this by exporting the following, which will set the JWK set
-path and the expected token kid:
+path and the expected token kid, from within `/test/`:
 
 ```bash
 # example JWKs from https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-set-properties
-export JWK_SET_PATH=test_data/jwks.json
+export JWK_SET_PATH=jwks.json
 
-# the kid from test_data/jwks.json
+# the kid from test/jwks.json
 export JWT_KID=NjVBRjY5MDlCMUIwNzU4RTA2QzZFMDQ4QzQ2MDAyQjVDNjk1RTM2Qg
 ```
 
 ### Example Output
-Run `go run main.go` to start the server, which will expose `/v1/jwt` and use the
+Run `go run test.go` to start the server, which will expose `/v1/jwt` and use the
 `JWK_SET_PATH` and `JWT_KID` to return a sample PEM response on:
 
 ```
@@ -32,7 +32,7 @@ package main
 import (
     "encoding/json"
     "fmt"
-    "jwk2pem/jwk2pem"
+    "github.com/coderbydesign/jwk2pem"
     "strings"
 )
 
